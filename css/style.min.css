@@ -7,9 +7,13 @@ html {
     font-size: 40px !important;
     letter-spacing: normal !important;
 }
+.decor-css{
+    text-decoration: none;
+}
 .size-group{
     font-size: 16px;
     color: #4a8b71;
+    text-decoration: none;
 }
 .size-footerheading{
     font-size: 2rem !important;
