@@ -1,0 +1,94 @@
+<ul>
+    <li class="">
+        <a href="index.html">Home</a>
+    </li>
+   
+        <li><a href="#methadology">Methadology</a>
+        </li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#blogs">Blogs</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+    <li class="li-btn"><a class="custom-btn primary" href="#contacts">Get in touch</a></li>
+</ul>
+<style>
+  ul.nav-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      overflow: hidden;
+  }
+
+  ul.nav-menu li {
+      float: left;
+  }
+
+  ul.nav-menu li a {
+      display: block;
+      color: #333;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      position: relative; /* Added for positioning the underline */
+  }
+
+  ul.nav-menu li a:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px; /* Height of the underline */
+      background-color: transparent; /* Initial underline color */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Center the underline */
+      transition: width 0.3s, background-color 0.3s; /* Smooth transition */
+  }
+
+  ul.nav-menu li.highlighted a {
+      color: #4CAF50; /* Highlighted text color */
+  }
+
+  ul.nav-menu li.highlighted a:after {
+      width: 100%;
+      background-color: #4CAF50; /* Highlighted underline color */
+  }
+</style>
+<script>
+   const navItems = document.querySelectorAll('.nav-menu li');
+  navItems.forEach(item => {
+      item.addEventListener('click', () => {
+          navItems.forEach(navItem => {
+              navItem.classList.remove('highlighted');
+          });
+          item.classList.add('highlighted');
+      });
+  });
+</script>
+
+<script>
+ jQuery(document).ready(function($) {
+    console.log("hello");
+    var links = document.querySelectorAll("a[href^='#']");
+    console.log("hello");
+
+    links.forEach(function(link) {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            var targetId = link.getAttribute("href").slice(1);
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
+            }
+        });
+    });
+});
+
+ </script>
