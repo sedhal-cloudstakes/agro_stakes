@@ -4,7 +4,10 @@
 	
 <!-- Mirrored from demo.artureanec.com/html/agricom/style_1/blog_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Aug 2023 13:28:25 GMT -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <head>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLVSMQZ2C9"></script>
 		<script>
   			window.dataLayer = window.dataLayer || [];
@@ -60,7 +63,31 @@
 		<script type="text/javascript" src="./js/device.min.js"></script>
 	</head>
 	<body class="page page-blog">
-		
+		<!-- <div class="position-fixed alert-box top-0 end-0 p-3 ">
+			<div id="toastAlert" class="toast tost-success" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+			  <div class="toast-header toast-header-success">
+				<strong class="me-auto alert-title" id="alert-title"></strong>
+				<button type="button" class="custom-close-button" data-bs-dismiss="toast" aria-label="Close">
+				  <svg class="custom-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+					<path d="M1 1l8 8m0-8L1 9" stroke="#ffffff" stroke-width="2"/>
+				  </svg>
+				</button>
+				
+			  </div>
+			</div>
+		  </div>
+		  <div class="position-fixed alert-box top-0 end-0 p-3 fixed-setup">
+			<div id="toastAlertDanger" class="toast tost-danger" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+			  <div class="tost-header-danger">
+				<strong class="me-auto alert-title" id="alert-danger-title"></strong>
+				<button type="button" class="custom-close-button" data-bs-dismiss="toast" aria-label="Close">
+				  <svg class="custom-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+					<path d="M1 1l8 8m0-8L1 9" stroke="#ffffff" stroke-width="2"/>
+				  </svg>
+				</button>
+			  </div>
+			</div>
+		  </div> -->
 		<div id="top-bar" class="top-bar--style-1">
 			<div class="container">
 				<img class="fluid-img agro-logocss" src="/img/agro_white.png" href="index.html" style="width: 100px;">
@@ -755,10 +782,11 @@
 		<script type="text/javascript" src="./js/main.min.js"></script>
 		
 	</body>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <script src="path-to/jquery-3.5.1.slim.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
 		<script>
-	 const api_url = "http://localhost:9002/api/";
+	 const api_url = "https://agrostakes.com/api/";
 	//  $('#submitForm').click(function() {
 	// 		const name = $('#name').val();
 	// 		const email = $('#email').val();
@@ -800,11 +828,13 @@
 				dataType :"json",
 				success: function(data) {
 					if (data.status == 200) {
-						$('#alert-title').text(data.message);
-						$('#toastAlert').toast('show');
+						Toastify({  text: "Your saved",className: "info", close:true,  style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",  }
+        }).showToast();
 					} else {
-						$('#alert-danger-title').text(data.message);
-						$('#toastAlertDanger').toast('show');
+						Toastify({  text: "Email is required",className: "error", close:true, style: {
+        background: "red",  }
+        }).showToast();
 					}
 				},
 				error: function(xhr, status, error) {
@@ -813,6 +843,11 @@
 			});
 		});	
 		</script>
-
+<style type="text/css"> 
+.toast-close { 
+opacity: 1 !important;
+margin-left: 120px;
+}
+</style>
 <!-- Mirrored from demo.artureanec.com/html/agricom/style_1/blog_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Aug 2023 13:28:26 GMT -->
 </html>

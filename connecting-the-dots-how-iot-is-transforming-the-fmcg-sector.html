@@ -5,6 +5,7 @@
 <!-- Mirrored from demo.artureanec.com/html/agricom/style_1/blog_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Aug 2023 13:28:25 GMT -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLVSMQZ2C9"></script>
 		<script>
   			window.dataLayer = window.dataLayer || [];
@@ -755,6 +756,72 @@ This tracking also generates valuable data for optimizing supply chain operation
 		<script type="text/javascript" src="./js/main.min.js"></script>
 		
 	</body>
-
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+		<script>
+	 const api_url = "https://agrostakes.com/api/";
+	//  $('#submitForm').click(function() {
+	// 		const name = $('#name').val();
+	// 		const email = $('#email').val();
+	// 		const subject = $('#subject').val();
+	// 		const message = $('#message').val();
+	// 		let jsonData = { name, email, subject, message };
+	// 		$.ajax({
+	// 			url: `${api_url}agro-stakes-contact`,
+	// 			method: 'POST',
+	// 			data: jsonData,
+	// 			dataType :"json",
+	// 			success: function(data) {
+	// 			  if (data.status === 200) {
+	// 				let form = document.getElementById('contact-form');
+	// 				$('#alert-title').text(data.message);
+	// 				$('#toastAlert').toast('show');
+	// 				setTimeout(() => {
+	// 					form.reset();
+	// 				}, 3000);
+	// 			  } else {
+	// 				$('#alert-danger-title').text(data.message);
+	// 				$('#toastAlertDanger').toast('show');
+	// 			  }
+	// 			},
+	// 			error: function(xhr, status, error) {
+	// 			  // Handle errors
+	// 			  console.error(error);
+	// 			}
+	// 		});
+	// 	});
+			$('#submit-newsletter').click(function() {
+			const email = $('#email-newsletter').val();
+			$.ajax({
+				url: `${api_url}newsletter`,
+				method: 'POST',
+				data: {
+					"email": email
+				},
+				dataType :"json",
+				success: function(data) {
+					if (data.status == 200) {
+						Toastify({  text: "Your saved",className: "info", close:true,  style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",  }
+        }).showToast();
+					} else {
+						Toastify({  text: "Email is required",className: "error", close:true, style: {
+        background: "red",  }
+        }).showToast();
+					}
+				},
+				error: function(xhr, status, error) {
+				  console.error(error);
+				}
+			});
+		});	
+		</script>
+<style type="text/css"> 
+.toast-close { 
+opacity: 1 !important;
+margin-left: 100px;
+}
+</style>
 <!-- Mirrored from demo.artureanec.com/html/agricom/style_1/blog_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Aug 2023 13:28:26 GMT -->
 </html>

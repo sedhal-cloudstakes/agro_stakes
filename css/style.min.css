@@ -494,9 +494,9 @@ svg {
     font-size: 16px !important;
     font-weight: 500 !important;
 }
-.ss_section_eight {
+/* .ss_section_eight {
     padding-top: 0px !important;
-}
+} */
 .font-tabcss {
     font-weight: 500;
     font-size: 26px;
@@ -895,6 +895,7 @@ template {
 .site-logo,
 body {
     position: relative;
+    scroll-behavior: smooth;
 }
 .embed-responsive embed,
 .embed-responsive iframe,
